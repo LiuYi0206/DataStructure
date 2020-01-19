@@ -59,11 +59,19 @@ public class Array<E> {
 
     }
 
-    E get(int index) {
+    public E get(int index) {
         if (index < 0 || index > size)
             throw new IllegalArgumentException("Get failed. Require index >=0 and index <= size.");
 
         return data[index];
+    }
+
+    public E getLast() {
+        return get(size -1);
+    }
+
+    public E getFirst() {
+        return get(0);
     }
 
     void set(int index, E e) {
@@ -102,8 +110,8 @@ public class Array<E> {
         size --;
         data[size] = null;
 
-        if (size == data.length / 2) {
-            resize(data.length / 2);
+        if (size == data.length / 4 && data.length / 2 != 0) {
+            resize(data.length / 4);
         }
         return ret;
     }
@@ -125,9 +133,16 @@ public class Array<E> {
 
     @Override
     public String toString() {
+        StringBuilder builder = new StringBuilder();
+        for (int i = 0; i < size -1; i++) {
+            builder.append(data[i]);
+            if (i != data.length -1)
+            builder.append(", ");
+        }
         return "Array:" +
-//                "capacity=" + capacity +
+                "capacity=" + data.length +
                 ", size=" + size +
-                '}';
+                ", data={" + builder.toString() +
+                '}' ;
     }
 }
