@@ -41,7 +41,7 @@ public class ArrayStack<E> implements Stack<E> {
     @Override
     public String toString() {
         StringBuilder builder = new StringBuilder();
-        for (int i = 0; i < array.getSize() -1; i++) {
+        for (int i = 0; i < array.getSize(); i++) {
             builder.append(array.get(i));
             if (i != array.getSize() -1)
                 builder.append(", ");
