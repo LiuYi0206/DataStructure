@@ -1,16 +1,15 @@
-import array.Array;
-import stack.ArrayStack;
-
-import java.util.ArrayList;
+import queue.ArrayQueue;
 
 public class Main {
     public static void main(String[] args) {
-        ArrayStack<Integer> stack = new ArrayStack<Integer>();
-        for (int i = 0; i < 5 ; i++) {
-            stack.push(i);
-            System.out.println(stack);
+        ArrayQueue<Integer> arrayQueue = new ArrayQueue<Integer>();
+        for (int i = 0; i < 10 ; i++) {
+            arrayQueue.enqueue(i);
+            System.out.println(arrayQueue);
+            if (i % 3 == 2) {
+                arrayQueue.dequeue();
+                System.out.println(arrayQueue);
+            }
         }
-        stack.pop();
-        System.out.println(stack);
     }
 }
