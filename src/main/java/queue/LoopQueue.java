@@ -31,6 +31,7 @@ public class LoopQueue<E> implements Queue<E> {
         return front == tail;
     }
 
+    @Override
     public void enqueue(E e) {
         if ((tail + 1) % data.length == front) {
             resize(getCapacoty() * 2);
