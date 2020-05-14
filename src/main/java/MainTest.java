@@ -1,3 +1,4 @@
+import linkedList.LinkedList;
 import queue.ArrayQueue;
 import queue.LoopQueue;
 import queue.Queue;
@@ -9,7 +10,22 @@ public class MainTest {
     byte[] a =  new byte[1024 * 100];
 
     public static void main(String[] args) throws Exception {
+        String aa = "删除失败,该会议室状态不为停用状态!";
 
+
+    }
+
+    public static void test3() {
+        LinkedList<Integer> linkedList = new LinkedList<>();
+        for (int i = 0; i < 5; i++) {
+            linkedList.addFirst(i);
+            System.out.println(linkedList);
+        }
+        linkedList.add(3,1111);
+        System.out.println(linkedList);
+    }
+
+    private static void test2() {
         int opCount = 100000;
         ArrayQueue<Integer> arrayQueue = new ArrayQueue<>();
         double time1 = testQueue(arrayQueue, opCount);
