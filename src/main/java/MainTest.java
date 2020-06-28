@@ -2,6 +2,9 @@ import linkedList.LinkedList;
 import queue.ArrayQueue;
 import queue.LoopQueue;
 import queue.Queue;
+import stack.ArrayStack;
+import stack.LinkedListStack;
+import stack.Stack;
 
 import java.util.Random;
 
@@ -10,9 +13,30 @@ public class MainTest {
     byte[] a =  new byte[1024 * 100];
 
     public static void main(String[] args) throws Exception {
-        String aa = "删除失败,该会议室状态不为停用状态!";
+        test4();
+    }
 
+    public static void test4() {
+        int opCount = 10000000;
+        ArrayStack<Integer> arrayStack = new ArrayStack<>();
+        double time1 = testStack(arrayStack, opCount);
+        System.out.println("arrayStack" + time1);
+        LinkedListStack<Integer> linkedListStack = new LinkedListStack<>();
+        double time2 = testStack(linkedListStack, opCount);
+        System.out.println("linkedListStack" + time2);
+    }
 
+    private static double testStack(Stack<Integer> s, int opCount) {
+        long startTime = System.nanoTime();
+        Random random = new Random();
+        for (int i = 0; i < opCount; i++) {
+            s.push(random.nextInt(Integer.MAX_VALUE));
+        }
+        for (int i = 0; i < opCount; i++) {
+            s.pop();
+        }
+        long endTime = System.nanoTime();
+        return (endTime - startTime) / 1000000000.0;
     }
 
     public static void test3() {
@@ -22,6 +46,8 @@ public class MainTest {
             System.out.println(linkedList);
         }
         linkedList.add(3,1111);
+        System.out.println(linkedList);
+        linkedList.remove(2);
         System.out.println(linkedList);
     }
 
