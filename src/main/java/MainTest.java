@@ -1,5 +1,6 @@
 import linkedList.LinkedList;
 import queue.ArrayQueue;
+import queue.LinkedListQueue;
 import queue.LoopQueue;
 import queue.Queue;
 import stack.ArrayStack;
@@ -13,7 +14,20 @@ public class MainTest {
     byte[] a =  new byte[1024 * 100];
 
     public static void main(String[] args) throws Exception {
-        test4();
+        test2();
+    }
+
+    public static void test5() {
+        LinkedListQueue<Integer> linkedListQueue = new LinkedListQueue<>();
+        for (int i = 0; i < 10; i++) {
+            linkedListQueue.enqueue(i);
+            System.out.println(linkedListQueue);
+
+            if (i % 3 == 2) {
+                linkedListQueue.dequeue();
+                System.out.println(linkedListQueue);
+            }
+        }
     }
 
     public static void test4() {
@@ -59,6 +73,10 @@ public class MainTest {
         LoopQueue<Integer> loopQueue = new LoopQueue<>();
         double time2 = testQueue(loopQueue, opCount);
         System.out.println("loopQueue" + time2);
+        LinkedListQueue<Integer> linkedListQueue = new LinkedListQueue<>();
+        double time3 = testQueue(linkedListQueue, opCount);
+        System.out.println("linkedListQueue" + time3);
+
     }
 
     private static double testQueue(Queue<Integer> q, int opCount) {
