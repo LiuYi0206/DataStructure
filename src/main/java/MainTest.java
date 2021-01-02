@@ -11,7 +11,7 @@ public class MainTest {
 
     public static void main(String[] args) throws Exception {
         String aa = "删除失败,该会议室状态不为停用状态!";
-
+        System.out.println(aa);
 
     }
 

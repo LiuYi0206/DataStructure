@@ -112,7 +112,7 @@ public class LinkedList<E> {
         return false;
     }
 
-    public void del(int index) {
+    public void remove(int index) {
 
     }
 
